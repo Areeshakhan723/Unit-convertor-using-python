@@ -8,6 +8,7 @@ A simple and intuitive unit convertor built with Python, UV, and Streamlit. Conv
 𝗗𝘆𝗻𝗮𝗺𝗶𝗰 𝗣𝗿𝗲𝗰𝗶𝘀𝗶𝗼𝗻: Results are displayed with appropriate precision (e.g., 2 decimal places for Temperature, 5 for others).
 
 𝗖𝗼𝗻𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗛𝗶𝘀𝘁𝗼𝗿𝘆: View and clear the last 5 conversions.
+
 𝗨𝘀𝗲𝗿-𝗙𝗿𝗶𝗲𝗻𝗱𝗹𝘆 𝗨𝗜: Clean and modern interface with custom styling.
 
 ## 🖥️ Usage
