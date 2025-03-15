@@ -65,6 +65,7 @@ st.markdown(
     /* Page background gradient */
     .stApp {
         background: #082032;
+        color: #FFFFFF;
         }
     .custom-title {
         text-align: center;
@@ -107,12 +108,15 @@ st.markdown(
         font-weight: bold;
         margin-top:14px;
         margin-bottom:10px;
+        color: #FFFFFF;
         }
 
     .record_history{
         text-align: center;
         font-size: 18px;
-        margin: 4px; 
+        margin: 4px;
+        color: #FFFFFF;
+ 
        }
 
     .custom-result {
@@ -126,8 +130,16 @@ st.markdown(
     .empty_msg{
         text-align: center;
         font-size: 18px;
-        }
+        color: #FFFFFF;
 
+        }
+    
+    . /* Custom labels for widgets */
+    .custom-label {
+        color: #FFFFFF;
+        font-size: 16px;
+        margin-bottom: 10px;
+        }
     </style>
     """,
     unsafe_allow_html=True
@@ -153,18 +165,24 @@ def unit_convert(value, category, unit_from, unit_to):
 st.markdown(f"<div class='custom-title'>All-in-One Unit Converter</div>", unsafe_allow_html=True)
 st.markdown(f"<div class='custom-subheader'>Convert between different units easily! 🚀</div>", unsafe_allow_html=True)
 
-category = st.selectbox("Select Conversion Type:",list (conversion_factors.keys()))
+# Dropdown to select conversion category
+st.markdown("<div class='custom-label'>Select Conversion Type:</div>", unsafe_allow_html=True)
+category = st.selectbox("", list(conversion_factors.keys()), label_visibility="collapsed")
 
 # Two equal columns for unit selection
 col1, col2 = st.columns(2)
 
 with col1:
-    unit_from = st.selectbox("Convert from:", list(conversion_factors[category].keys()))
+    st.markdown("<div class='custom-label'>Convert from:</div>", unsafe_allow_html=True)
+    unit_from = st.selectbox("", list(conversion_factors[category].keys()), label_visibility="collapsed")
+
 with col2:
-    unit_to = st.selectbox("Convert to:", [u for u in conversion_factors[category].keys() if u != unit_from])
+    st.markdown("<div class='custom-label'>Convert to:</div>", unsafe_allow_html=True)
+    unit_to = st.selectbox("", [u for u in conversion_factors[category].keys() if u != unit_from], label_visibility="collapsed")
 
-value = st.number_input("Enter a value you want to convert:",min_value=1.0, step=1.0)
 
+st.markdown("<div class='custom-label'>Enter a value you want to convert:</div>", unsafe_allow_html=True)
+value = st.number_input("", min_value=1.0, step=1.0, label_visibility="collapsed")
 
 
 # Initialize session state for conversion history if not already created
